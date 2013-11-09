@@ -1,0 +1,6 @@
+*.suo
+*.csproj.user
+/ImageCutterWpf/bin/
+/ImageCutterWpf/nuget/Extended.Wpf.Toolkit.2.0.0/
+/ImageCutterWpf/nuget/Newtonsoft.Json.5.0.8/
+/ImageCutterWpf/obj/
