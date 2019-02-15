@@ -187,7 +187,7 @@ namespace ImageCutterWpf {
             }
             using (var outputBitmap = new Drawing.Bitmap((int)data.OutputWidth, (int)data.OutputHeight)) {
                 using (var g = Drawing.Graphics.FromImage(outputBitmap)) {
-                    var color = fieldColorPicker.SelectedColor;
+                    var color = fieldColorPicker.SelectedColor.Value;
                     var drawingColor = Drawing.Color.FromArgb(color.A, color.R, color.G, color.B);
                     g.Clear(drawingColor);
 
@@ -363,12 +363,12 @@ namespace ImageCutterWpf {
             }
         }
 
-        private void ColorPicker_SelectedColorChanged(object sender, RoutedPropertyChangedEventArgs<Color> e) {
+        private void ColorPicker_SelectedColorChanged(object sender, RoutedPropertyChangedEventArgs<Color?> e) {
             if (data == null) {
                 return;
             }
             var newColor = e.NewValue;
-            data.FieldBackgroundColor = newColor;
+            data.FieldBackgroundColor = newColor.Value;
             SaveSettings();
         }
 
@@ -380,10 +380,10 @@ namespace ImageCutterWpf {
                         new JProperty("height", data.OutputHeight))),
                 new JProperty("backgroundColor",
                     new JObject(
-                        new JProperty("a", fieldColorPicker.SelectedColor.A),
-                        new JProperty("r", fieldColorPicker.SelectedColor.R),
-                        new JProperty("g", fieldColorPicker.SelectedColor.G),
-                        new JProperty("b", fieldColorPicker.SelectedColor.B))),
+                        new JProperty("a", fieldColorPicker.SelectedColor.Value.A),
+                        new JProperty("r", fieldColorPicker.SelectedColor.Value.R),
+                        new JProperty("g", fieldColorPicker.SelectedColor.Value.G),
+                        new JProperty("b", fieldColorPicker.SelectedColor.Value.B))),
                 new JProperty("window",
                     new JObject(
                         new JProperty("width", this.Width),
