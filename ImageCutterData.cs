@@ -292,7 +292,7 @@ namespace ImageCutterWpf {
 
             ImageCutBoxHCenterLineX1 = imageCutBoxLeft;
             ImageCutBoxHCenterLineX2 = imageCutBoxLeft + imageCutBoxWidth;
-            ImageCutBoxHCenterLineY = imageCutBoxTop + imageCutBoxWidth / 2;
+            ImageCutBoxHCenterLineY = imageCutBoxTop + imageCutBoxHeight / 2;
         }
 
         #region Dummy image
